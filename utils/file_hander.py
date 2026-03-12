@@ -28,7 +28,7 @@ def list_dir_with_allow_type(path:str,allow_type:tuple[str]):
         logger.error('[文件遍历]路径'+path+'不是文件夹')
     for file in os.listdir(path):
         if file.endswith(allow_type):
-            ans.append(os.path.join(path+file))
+            ans.append(os.path.join(path,file))
     return tuple(ans)
 
 def pdf_loader(file_path:str,pwd=None)->list[Document]:

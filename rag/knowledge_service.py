@@ -55,7 +55,7 @@ class KnowledgeService:
                 continue
 
             try:
-                documents:list[Document]=file_to_doc(path)
+                documents:list[Document]=file_to_doc(get_abs_path(path))
                 if not documents:
                     logger.warning('[加载知识库]'+path+'文件内无有效信息')
                     continue
