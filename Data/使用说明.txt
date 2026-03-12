@@ -1,0 +1,1 @@
+在Sifu\Sifu\Content\Paks路径下创建以“~mods”命名的文件夹，把下载的两个文件放进去，重启游戏即可

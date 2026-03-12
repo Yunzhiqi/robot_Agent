@@ -1,0 +1,4 @@
+collection_name: test
+persist_path: ./chroma_db
+embbeding_fun_name: text-embedding-v4
+topk: 1
