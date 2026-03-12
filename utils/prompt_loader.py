@@ -16,5 +16,5 @@ def load_prompts(prompt_type:str):
         raise e
     
 system_prompt=load_prompts('system_prompt_path')
-rag_prompt=load_prompts('rag_summarize_prompt_path')
+rag_summarize=load_prompts('rag_summarize_path')
 report_prompt=load_prompts('report_prompt_path')
