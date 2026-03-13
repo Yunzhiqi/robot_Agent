@@ -13,6 +13,6 @@
 #     print(r.page_content)
 #     print('='*20)
 
-from rag.rag_service import RagSummrizeService
-test=RagSummrizeService()
+from rag.rag_service import RagSummarizeService
+test=RagSummarizeService()
 print(test.rag_summarize('小户型适合什么扫地机器人'))
