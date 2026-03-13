@@ -13,6 +13,10 @@
 #     print(r.page_content)
 #     print('='*20)
 
-from rag.rag_service import RagSummarizeService
-test=RagSummarizeService()
-print(test.rag_summarize('小户型适合什么扫地机器人'))
+# from rag.rag_service import RagSummarizeService
+# test=RagSummarizeService()
+# print(test.rag_summarize('小户型适合什么扫地机器人'))
+
+# from agent.tools.agent_tools import external_data,generate_external_data
+# generate_external_data()
+# print(external_data)
