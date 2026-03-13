@@ -5,7 +5,7 @@ project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(_
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
-from rag.rag_service import RagSummrizeService
+from rag import rag_service
 from utils.path_tool import get_abs_path
 from utils.config_hander import agent_config
 from utils.log import logger
@@ -18,7 +18,7 @@ external_data = {}
 
 @tool(description='从向量数据库中检索参考资料')
 def rag_summarize(quary:str)->str:
-    rag=RagSummrizeService()
+    rag=rag_service.RagSummrizeService()
     return rag.rag_summarize(quary)
 
 @tool(description="获取指定城市的天气，以消息字符串的形式返回")
