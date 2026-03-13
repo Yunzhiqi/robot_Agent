@@ -1,0 +1,385 @@
+2026-03-13 08:49:00,677 - agent - ERROR - knowledge_service.py:70 - [加载知识库]d:\git\robot_Agent\data\使用说明.txt加载失败,Error loading d:\git\robot_Agent\data\使用说明.txt
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\text.py", line 43, in lazy_load
+    text = f.read()
+           ^^^^^^^^
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xaf in position 27: illegal multibyte sequence
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 58, in load_doc
+    documents:list[Document]=file_to_doc(path)
+                             ^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 44, in file_to_doc
+    return txt_loader(file_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\utils\file_hander.py", line 37, in txt_loader
+    return TextLoader(filepath).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\text.py", line 56, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading d:\git\robot_Agent\data\使用说明.txt
+2026-03-13 08:49:00,823 - agent - ERROR - knowledge_service.py:70 - [加载知识库]d:\git\robot_Agent\data\扫地机器人100问.pdf加载失败,`pypdf` package not found, please install it with `pip install pypdf`
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\parsers\pdf.py", line 359, in lazy_parse
+    import pypdf
+ModuleNotFoundError: No module named 'pypdf'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 58, in load_doc
+    documents:list[Document]=file_to_doc(path)
+                             ^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 46, in file_to_doc
+    return pdf_loader(file_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\utils\file_hander.py", line 35, in pdf_loader
+    return PyPDFLoader(file_path,password=pwd).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\pdf.py", line 305, in lazy_load
+    yield from self.parser.lazy_parse(blob)
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\parsers\pdf.py", line 361, in lazy_parse
+    raise ImportError(
+ImportError: `pypdf` package not found, please install it with `pip install pypdf`
+2026-03-13 08:49:00,902 - agent - ERROR - knowledge_service.py:70 - [加载知识库]d:\git\robot_Agent\data\扫地机器人100问2.txt加载失败,Error loading d:\git\robot_Agent\data\扫地机器人100问2.txt
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\text.py", line 43, in lazy_load
+    text = f.read()
+           ^^^^^^^^
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xab in position 4: illegal multibyte sequence
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 58, in load_doc
+    documents:list[Document]=file_to_doc(path)
+                             ^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 44, in file_to_doc
+    return txt_loader(file_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\utils\file_hander.py", line 37, in txt_loader
+    return TextLoader(filepath).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\text.py", line 56, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading d:\git\robot_Agent\data\扫地机器人100问2.txt
+2026-03-13 08:49:00,921 - agent - ERROR - knowledge_service.py:70 - [加载知识库]d:\git\robot_Agent\data\故障排除.txt加载失败,Error loading d:\git\robot_Agent\data\故障排除.txt
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\text.py", line 43, in lazy_load
+    text = f.read()
+           ^^^^^^^^
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xab in position 2: illegal multibyte sequence
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 58, in load_doc
+    documents:list[Document]=file_to_doc(path)
+                             ^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 44, in file_to_doc
+    return txt_loader(file_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\utils\file_hander.py", line 37, in txt_loader
+    return TextLoader(filepath).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\text.py", line 56, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading d:\git\robot_Agent\data\故障排除.txt
+2026-03-13 08:49:00,942 - agent - ERROR - knowledge_service.py:70 - [加载知识库]d:\git\robot_Agent\data\维护保养.txt加载失败,Error loading d:\git\robot_Agent\data\维护保养.txt
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\text.py", line 43, in lazy_load
+    text = f.read()
+           ^^^^^^^^
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xab in position 4: illegal multibyte sequence
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 58, in load_doc
+    documents:list[Document]=file_to_doc(path)
+                             ^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 44, in file_to_doc
+    return txt_loader(file_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\utils\file_hander.py", line 37, in txt_loader
+    return TextLoader(filepath).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\text.py", line 56, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading d:\git\robot_Agent\data\维护保养.txt
+2026-03-13 08:49:00,955 - agent - ERROR - knowledge_service.py:70 - [加载知识库]d:\git\robot_Agent\data\选购指南.txt加载失败,Error loading d:\git\robot_Agent\data\选购指南.txt
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\text.py", line 43, in lazy_load
+    text = f.read()
+           ^^^^^^^^
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xab in position 2: illegal multibyte sequence
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 58, in load_doc
+    documents:list[Document]=file_to_doc(path)
+                             ^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 44, in file_to_doc
+    return txt_loader(file_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\utils\file_hander.py", line 37, in txt_loader
+    return TextLoader(filepath).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\text.py", line 56, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading d:\git\robot_Agent\data\选购指南.txt
+2026-03-13 08:50:14,353 - agent - ERROR - knowledge_service.py:70 - [加载知识库]d:\git\robot_Agent\data\使用说明.txt加载失败,Error loading d:\git\robot_Agent\data\使用说明.txt
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\text.py", line 43, in lazy_load
+    text = f.read()
+           ^^^^^^^^
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xaf in position 27: illegal multibyte sequence
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 58, in load_doc
+    documents:list[Document]=file_to_doc(path)
+                             ^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 44, in file_to_doc
+    return txt_loader(file_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\utils\file_hander.py", line 37, in txt_loader
+    return TextLoader(filepath).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\text.py", line 56, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading d:\git\robot_Agent\data\使用说明.txt
+2026-03-13 08:50:14,476 - agent - ERROR - knowledge_service.py:70 - [加载知识库]d:\git\robot_Agent\data\扫地机器人100问.pdf加载失败,`pypdf` package not found, please install it with `pip install pypdf`
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\parsers\pdf.py", line 359, in lazy_parse
+    import pypdf
+ModuleNotFoundError: No module named 'pypdf'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 58, in load_doc
+    documents:list[Document]=file_to_doc(path)
+                             ^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 46, in file_to_doc
+    return pdf_loader(file_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\utils\file_hander.py", line 35, in pdf_loader
+    return PyPDFLoader(file_path,password=pwd).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\pdf.py", line 305, in lazy_load
+    yield from self.parser.lazy_parse(blob)
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\parsers\pdf.py", line 361, in lazy_parse
+    raise ImportError(
+ImportError: `pypdf` package not found, please install it with `pip install pypdf`
+2026-03-13 08:50:14,514 - agent - ERROR - knowledge_service.py:70 - [加载知识库]d:\git\robot_Agent\data\扫地机器人100问2.txt加载失败,Error loading d:\git\robot_Agent\data\扫地机器人100问2.txt
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\text.py", line 43, in lazy_load
+    text = f.read()
+           ^^^^^^^^
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xab in position 4: illegal multibyte sequence
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 58, in load_doc
+    documents:list[Document]=file_to_doc(path)
+                             ^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 44, in file_to_doc
+    return txt_loader(file_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\utils\file_hander.py", line 37, in txt_loader
+    return TextLoader(filepath).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\text.py", line 56, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading d:\git\robot_Agent\data\扫地机器人100问2.txt
+2026-03-13 08:50:14,525 - agent - ERROR - knowledge_service.py:70 - [加载知识库]d:\git\robot_Agent\data\故障排除.txt加载失败,Error loading d:\git\robot_Agent\data\故障排除.txt
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\text.py", line 43, in lazy_load
+    text = f.read()
+           ^^^^^^^^
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xab in position 2: illegal multibyte sequence
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 58, in load_doc
+    documents:list[Document]=file_to_doc(path)
+                             ^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 44, in file_to_doc
+    return txt_loader(file_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\utils\file_hander.py", line 37, in txt_loader
+    return TextLoader(filepath).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\text.py", line 56, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading d:\git\robot_Agent\data\故障排除.txt
+2026-03-13 08:50:14,535 - agent - ERROR - knowledge_service.py:70 - [加载知识库]d:\git\robot_Agent\data\维护保养.txt加载失败,Error loading d:\git\robot_Agent\data\维护保养.txt
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\text.py", line 43, in lazy_load
+    text = f.read()
+           ^^^^^^^^
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xab in position 4: illegal multibyte sequence
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 58, in load_doc
+    documents:list[Document]=file_to_doc(path)
+                             ^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 44, in file_to_doc
+    return txt_loader(file_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\utils\file_hander.py", line 37, in txt_loader
+    return TextLoader(filepath).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\text.py", line 56, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading d:\git\robot_Agent\data\维护保养.txt
+2026-03-13 08:50:14,541 - agent - ERROR - knowledge_service.py:70 - [加载知识库]d:\git\robot_Agent\data\选购指南.txt加载失败,Error loading d:\git\robot_Agent\data\选购指南.txt
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\text.py", line 43, in lazy_load
+    text = f.read()
+           ^^^^^^^^
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xab in position 2: illegal multibyte sequence
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 58, in load_doc
+    documents:list[Document]=file_to_doc(path)
+                             ^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 44, in file_to_doc
+    return txt_loader(file_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\utils\file_hander.py", line 37, in txt_loader
+    return TextLoader(filepath).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\text.py", line 56, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading d:\git\robot_Agent\data\选购指南.txt
+2026-03-13 08:52:51,516 - agent - ERROR - knowledge_service.py:70 - [加载知识库]d:\git\robot_Agent\data\使用说明.txt加载失败,Error loading d:\git\robot_Agent\data\使用说明.txt
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\text.py", line 43, in lazy_load
+    text = f.read()
+           ^^^^^^^^
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xaf in position 27: illegal multibyte sequence
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 58, in load_doc
+    documents:list[Document]=file_to_doc(path)
+                             ^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 44, in file_to_doc
+    return txt_loader(file_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\utils\file_hander.py", line 37, in txt_loader
+    return TextLoader(filepath).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\text.py", line 56, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading d:\git\robot_Agent\data\使用说明.txt
+2026-03-13 08:56:57,530 - agent - ERROR - knowledge_service.py:70 - [加载知识库]d:\git\robot_Agent\data\使用说明.txt加载失败,Error loading d:\git\robot_Agent\data\使用说明.txt
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\text.py", line 42, in lazy_load
+    with open(self.file_path, encoding=self.encoding) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: open() argument 'encoding' must be str or None, not list
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 58, in load_doc
+    documents:list[Document]=file_to_doc(path)
+                             ^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 44, in file_to_doc
+    return txt_loader(file_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\utils\file_hander.py", line 38, in txt_loader
+    return TextLoader(filepath,encoding=encodings).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\text.py", line 58, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading d:\git\robot_Agent\data\使用说明.txt
+2026-03-13 09:11:59,933 - agent - ERROR - knowledge_service.py:70 - [加载知识库]d:\git\robot_Agent\data\扫地机器人100问.pdf加载失败,`pypdf` package not found, please install it with `pip install pypdf`
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\parsers\pdf.py", line 359, in lazy_parse
+    import pypdf
+ModuleNotFoundError: No module named 'pypdf'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 58, in load_doc
+    documents:list[Document]=file_to_doc(path)
+                             ^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\rag\knowledge_service.py", line 46, in file_to_doc
+    return pdf_loader(file_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "d:\git\robot_Agent\utils\file_hander.py", line 37, in pdf_loader
+    return PyPDFLoader(file_path,password=pwd).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\pdf.py", line 305, in lazy_load
+    yield from self.parser.lazy_parse(blob)
+  File "D:\anaconda3\envs\py312\Lib\site-packages\langchain_community\document_loaders\parsers\pdf.py", line 361, in lazy_parse
+    raise ImportError(
+ImportError: `pypdf` package not found, please install it with `pip install pypdf`
+2026-03-13 09:14:14,045 - agent - INFO - knowledge_service.py:68 - [加载知识库]d:\git\robot_Agent\data\扫地机器人100问.pdf成功加载进知识库中
+2026-03-13 09:14:47,810 - agent - INFO - knowledge_service.py:68 - [加载知识库]d:\git\robot_Agent\data\扫地机器人100问2.txt成功加载进知识库中
+2026-03-13 09:15:04,458 - agent - INFO - knowledge_service.py:54 - [加载知识库]d:\git\robot_Agent\data\扫地机器人100问.pdf已经存在知识库中
+2026-03-13 09:15:04,458 - agent - INFO - knowledge_service.py:54 - [加载知识库]d:\git\robot_Agent\data\扫地机器人100问2.txt已经存在知识库中
+2026-03-13 09:15:07,341 - agent - INFO - knowledge_service.py:68 - [加载知识库]d:\git\robot_Agent\data\故障排除.txt成功加载进知识库中
+2026-03-13 09:15:09,202 - agent - INFO - knowledge_service.py:68 - [加载知识库]d:\git\robot_Agent\data\维护保养.txt成功加载进知识库中
+2026-03-13 09:15:11,396 - agent - INFO - knowledge_service.py:68 - [加载知识库]d:\git\robot_Agent\data\选购指南.txt成功加载进知识库中

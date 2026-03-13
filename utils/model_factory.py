@@ -1,5 +1,5 @@
 from langchain_community.embeddings import DashScopeEmbeddings
-from langchain_community.chat_models import ChatOpenAI
+from langchain_openai import ChatOpenAI
 from utils.config_hander import rag_config
 
 class EmbeddingModelFactory():

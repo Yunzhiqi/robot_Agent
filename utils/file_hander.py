@@ -1,4 +1,5 @@
 import os,hashlib
+import chardet
 from utils.log import logger
 from langchain_core.documents import Document
 from langchain_community.document_loaders import PyPDFLoader,TextLoader
@@ -31,7 +32,12 @@ def list_dir_with_allow_type(path:str,allow_type:tuple[str]):
             ans.append(os.path.join(path,file))
     return tuple(ans)
 
+
 def pdf_loader(file_path:str,pwd=None)->list[Document]:
     return PyPDFLoader(file_path,password=pwd).load()
 def txt_loader(filepath:str)->list[Document]:
-    return TextLoader(filepath).load()
+    with open(filepath, 'rb') as f:
+        raw_data = f.read()
+        result = chardet.detect(raw_data)
+        encoding = result['encoding']
+    return TextLoader(filepath,encoding=encoding).load()

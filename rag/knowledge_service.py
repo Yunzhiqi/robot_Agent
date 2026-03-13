@@ -46,7 +46,7 @@ class KnowledgeService:
                 return pdf_loader(file_path)
             return []
         
-        allowed_files_path=list_dir_with_allow_type(chroma_config['data_path'],tuple(chroma_config['allow_knowledge_file_type']))
+        allowed_files_path=list_dir_with_allow_type(get_abs_path(chroma_config['data_path']),tuple(chroma_config['allow_knowledge_file_type']))
 
         for path in allowed_files_path:
             md5_hex=get_file_md5(path)
@@ -55,7 +55,7 @@ class KnowledgeService:
                 continue
 
             try:
-                documents:list[Document]=file_to_doc(get_abs_path(path))
+                documents:list[Document]=file_to_doc(path)
                 if not documents:
                     logger.warning('[加载知识库]'+path+'文件内无有效信息')
                     continue
