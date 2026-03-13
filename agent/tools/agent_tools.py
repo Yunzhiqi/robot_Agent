@@ -18,7 +18,7 @@ external_data = {}
 
 @tool(description='从向量数据库中检索参考资料')
 def rag_summarize(quary:str)->str:
-    rag=rag_service.RagSummrizeService()
+    rag=rag_service.RagSummarizeService()
     return rag.rag_summarize(quary)
 
 @tool(description="获取指定城市的天气，以消息字符串的形式返回")
@@ -104,6 +104,15 @@ def fetch_external_data(user_id: str, month: str) -> str:
         logger.warning(f"[fetch_external_data]未能检索到用户：{user_id}在{month}的使用记录数据")
         return ""
     
-if __name__=='__main__':
-    generate_external_data()
-    print(external_data)
+    
+    
+
+
+
+@tool(description="无入参，无返回值，调用后触发中间件自动为报告生成的场景动态注入上下文信息，为后续提示词切换提供上下文信息")
+def fill_context_for_report():
+    return  
+
+# if __name__=='__main__':
+#     generate_external_data()
+#     print(external_data)

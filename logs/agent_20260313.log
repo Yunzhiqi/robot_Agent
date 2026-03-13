@@ -383,3 +383,74 @@ ImportError: `pypdf` package not found, please install it with `pip install pypd
 2026-03-13 09:15:07,341 - agent - INFO - knowledge_service.py:68 - [加载知识库]d:\git\robot_Agent\data\故障排除.txt成功加载进知识库中
 2026-03-13 09:15:09,202 - agent - INFO - knowledge_service.py:68 - [加载知识库]d:\git\robot_Agent\data\维护保养.txt成功加载进知识库中
 2026-03-13 09:15:11,396 - agent - INFO - knowledge_service.py:68 - [加载知识库]d:\git\robot_Agent\data\选购指南.txt成功加载进知识库中
+2026-03-13 15:11:49,544 - agent - INFO - middleware.py:40 - [log_before_model]即将调用模型，带有1条消息。
+2026-03-13 15:11:52,585 - agent - DEBUG - middleware.py:42 - [log_before_model]HumanMessage | 给我生成我的使用报告
+2026-03-13 15:12:26,641 - agent - INFO - middleware.py:19 - [tool monitor]执行工具：fill_context_for_report
+2026-03-13 15:12:26,642 - agent - INFO - middleware.py:20 - [tool monitor]传入参数：{}
+2026-03-13 15:12:42,432 - agent - INFO - middleware.py:24 - [tool monitor]工具fill_context_for_report调用成功
+2026-03-13 15:13:07,894 - agent - INFO - middleware.py:40 - [log_before_model]即将调用模型，带有3条消息。
+2026-03-13 15:13:09,851 - agent - DEBUG - middleware.py:42 - [log_before_model]ToolMessage | null
+2026-03-13 15:13:25,357 - agent - INFO - middleware.py:19 - [tool monitor]执行工具：get_user_id
+2026-03-13 15:13:25,358 - agent - INFO - middleware.py:20 - [tool monitor]传入参数：{}
+2026-03-13 15:13:25,364 - agent - INFO - middleware.py:24 - [tool monitor]工具get_user_id调用成功
+2026-03-13 15:13:38,548 - agent - INFO - middleware.py:40 - [log_before_model]即将调用模型，带有5条消息。
+2026-03-13 15:13:39,105 - agent - DEBUG - middleware.py:42 - [log_before_model]ToolMessage | 1002
+2026-03-13 15:13:51,021 - agent - INFO - middleware.py:19 - [tool monitor]执行工具：get_current_month
+2026-03-13 15:13:51,022 - agent - INFO - middleware.py:20 - [tool monitor]传入参数：{}
+2026-03-13 15:13:51,024 - agent - INFO - middleware.py:24 - [tool monitor]工具get_current_month调用成功
+2026-03-13 15:13:59,556 - agent - INFO - middleware.py:40 - [log_before_model]即将调用模型，带有7条消息。
+2026-03-13 15:14:02,724 - agent - DEBUG - middleware.py:42 - [log_before_model]ToolMessage | 2025-11
+2026-03-13 15:14:22,753 - agent - INFO - middleware.py:19 - [tool monitor]执行工具：fetch_external_data
+2026-03-13 15:14:22,754 - agent - INFO - middleware.py:20 - [tool monitor]传入参数：{'user_id': '1002', 'month': '2025-11'}
+2026-03-13 15:14:22,786 - agent - INFO - middleware.py:24 - [tool monitor]工具fetch_external_data调用成功
+2026-03-13 15:14:27,209 - agent - INFO - middleware.py:40 - [log_before_model]即将调用模型，带有9条消息。
+2026-03-13 15:14:27,742 - agent - DEBUG - middleware.py:42 - [log_before_model]ToolMessage | {"特征": "70㎡公寓 | 情侣 | 瓷砖", "效率": "覆盖率:90%\\n避障失败:0次/周", "耗材": "边刷寿命:剩余45天\\n尘盒清理:每4天", "对比": "拖地功能使用率与同类平均水平持平"}
+2026-03-13 15:14:39,907 - agent - INFO - middleware.py:19 - [tool monitor]执行工具：rag_summarize
+2026-03-13 15:14:39,908 - agent - INFO - middleware.py:20 - [tool monitor]传入参数：{'quary': '扫地机器人保养维护建议'}
+2026-03-13 15:14:39,915 - agent - ERROR - middleware.py:31 - 工具rag_summarize调用失败，原因：module 'rag.rag_service' has no attribute 'RagSummrizeService'
+2026-03-13 15:17:48,862 - agent - INFO - middleware.py:40 - [log_before_model]即将调用模型，带有1条消息。
+2026-03-13 15:17:48,862 - agent - DEBUG - middleware.py:42 - [log_before_model]HumanMessage | 给我生成我的使用报告
+2026-03-13 15:17:52,927 - agent - INFO - middleware.py:19 - [tool monitor]执行工具：fill_context_for_report
+2026-03-13 15:17:52,928 - agent - INFO - middleware.py:20 - [tool monitor]传入参数：{}
+2026-03-13 15:17:52,928 - agent - INFO - middleware.py:24 - [tool monitor]工具fill_context_for_report调用成功
+2026-03-13 15:17:52,929 - agent - INFO - middleware.py:40 - [log_before_model]即将调用模型，带有3条消息。
+2026-03-13 15:17:52,929 - agent - DEBUG - middleware.py:42 - [log_before_model]ToolMessage | null
+2026-03-13 15:17:56,499 - agent - INFO - middleware.py:19 - [tool monitor]执行工具：get_user_id
+2026-03-13 15:17:56,499 - agent - INFO - middleware.py:20 - [tool monitor]传入参数：{}
+2026-03-13 15:17:56,501 - agent - INFO - middleware.py:24 - [tool monitor]工具get_user_id调用成功
+2026-03-13 15:17:56,501 - agent - INFO - middleware.py:19 - [tool monitor]执行工具：get_current_month
+2026-03-13 15:17:56,502 - agent - INFO - middleware.py:20 - [tool monitor]传入参数：{}
+2026-03-13 15:17:56,502 - agent - INFO - middleware.py:24 - [tool monitor]工具get_current_month调用成功
+2026-03-13 15:17:56,504 - agent - INFO - middleware.py:40 - [log_before_model]即将调用模型，带有6条消息。
+2026-03-13 15:17:56,504 - agent - DEBUG - middleware.py:42 - [log_before_model]ToolMessage | 2025-07
+2026-03-13 15:18:02,252 - agent - INFO - middleware.py:19 - [tool monitor]执行工具：fetch_external_data
+2026-03-13 15:18:02,252 - agent - INFO - middleware.py:20 - [tool monitor]传入参数：{'user_id': '1010', 'month': '2025-07'}
+2026-03-13 15:18:02,254 - agent - INFO - middleware.py:24 - [tool monitor]工具fetch_external_data调用成功
+2026-03-13 15:18:02,255 - agent - INFO - middleware.py:40 - [log_before_model]即将调用模型，带有8条消息。
+2026-03-13 15:18:02,255 - agent - DEBUG - middleware.py:42 - [log_before_model]ToolMessage | {"特征": "130㎡四居 | 三代同堂 | 通体砖", "效率": "覆盖率:81%\\n手动辅助清扫:4次/天\\n定时清扫使用率:55%", "耗材": "电池衰减:16%\\n边刷寿命:剩余40天", "对比": "大户型中操作便捷性低于同类22%"}
+2026-03-13 15:18:07,184 - agent - INFO - middleware.py:19 - [tool monitor]执行工具：rag_summarize
+2026-03-13 15:18:07,184 - agent - INFO - middleware.py:20 - [tool monitor]传入参数：{'quary': '扫地机器人保养建议 电池维护 边刷更换 清洁效率提升'}
+2026-03-13 15:18:31,445 - agent - INFO - middleware.py:24 - [tool monitor]工具rag_summarize调用成功
+2026-03-13 15:18:31,448 - agent - INFO - middleware.py:40 - [log_before_model]即将调用模型，带有10条消息。
+2026-03-13 15:18:31,448 - agent - DEBUG - middleware.py:42 - [log_before_model]ToolMessage | 根据参考资料，针对扫地机器人保养建议中电池维护、边刷更换和清洁效率提升的概括如下：
+
+**电池维护**
+*   **日常充电**：每次使用后及时将机器人放回充电座，避免亏电存放。
+*   **定期检查**：每月检查电池仓，确认电池无鼓包、漏液，排线连接牢固。
+*   **续航下降处理**：避免长时间亏电，定期进行满充满放校准。使用1-2年后续航严重衰减可考虑更换电池。
+*   **环境与安全**：充电时保证环境通风，无易燃物。避免在高于40℃或低于0℃的环境下长时间工作。
+
+**边刷更换**
+*   **日常维护**：每日清理边刷上的灰尘和杂物。
+*   **更换时机**：当边刷磨损至刷毛长度小于1厘米时，需立即更换，以免影响边角清扫效果。
+*   **更换方法**：拆卸机身底部的边刷卡扣，直接更换新边刷并按压卡紧即可。
+
+**清洁效率提升**
+*   **主刷与风道**：每次清扫后立即清理主刷缠绕的毛发（勿强行拉扯），每周拆解主刷滚刷仓并清理内部灰尘。定期清理机器人风道，确保通畅。
+*   **尘盒与滤网**：清扫后及时倾倒尘盒，普通家庭建议2-3天清理一次。定期清理或更换尘盒滤网（可水洗滤网需阴干，3-6个月后建议更换）。
+*   **传感器与轮组**：每日用干布清洁底部防跌落、沿边传感器。每日检查并清理驱动轮、万向轮缠绕的毛发，保证转动顺畅。
+*   **针对性设置**：
+    *   吸力下降时，优先检查并清理尘盒、滤网及风道堵塞。
+    *   对于地毯，可调大吸力并使用地毯增压模式。
+    *   对于不同地面，可在APP中设置分区清扫，分别调整吸力和模式。
+    *   拖地后如有水渍，可调小出水量、更换干净拖布并改用干拖或低速模式。

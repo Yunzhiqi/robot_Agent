@@ -4,6 +4,7 @@ from langchain_core.documents import Document
 from rag.knowledge_service import KnowledgeService
 from utils.prompt_loader import rag_summarize
 from utils.model_factory import chat_model
+
 class RagSummarizeService:
     def __init__(self):
         self.vecotr_store=KnowledgeService()

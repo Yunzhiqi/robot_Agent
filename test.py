@@ -17,6 +17,11 @@
 # test=RagSummarizeService()
 # print(test.rag_summarize('小户型适合什么扫地机器人'))
 
-from agent.tools.agent_tools import external_data,generate_external_data
-generate_external_data()
-print(external_data)
+# from agent.tools.agent_tools import external_data,generate_external_data
+# generate_external_data()
+# print(external_data)
+
+from agent.react_agent import ReactAgent
+test_agent=ReactAgent()
+for chunk in test_agent.execute_stream("给我生成我的使用报告"):
+    print(chunk, end="", flush=True)
