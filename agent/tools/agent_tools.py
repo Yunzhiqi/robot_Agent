@@ -113,6 +113,10 @@ def fetch_external_data(user_id: str, month: str) -> str:
 def fill_context_for_report():
     return  
 
+@tool(description="当用户遇到复杂设备故障、表达强烈不满，或主动要求转接人工客服时调用此工具。无入参。")
+def transfer_to_human():
+    # 这个返回值会记录到上下文中，实际上前端可以通过识别图的中断状态来给用户提示
+    return "系统提示：已为您呼叫人工客服，请耐心等待。"
 # if __name__=='__main__':
 #     generate_external_data()
 #     print(external_data)

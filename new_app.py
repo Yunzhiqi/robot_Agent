@@ -48,6 +48,35 @@ if "agent" not in st.session_state:
     st.session_state["agent"] = ReactAgent()
     st.session_state["agent_status"] = "在线"
 
+# 从数据库同步最新的历史记录（包含人工客服的回复）
+config = {"configurable": {"thread_id": "user_001"}}
+current_state = st.session_state["agent"].app.get_state(config)
+
+is_human_mode = False
+if current_state and current_state.values.get("messages"):
+    is_human_mode = current_state.values.get("human_mode", False)
+    
+    # 动态更新侧边栏的状态显示
+    st.session_state["agent_status"] = "人工接管中" if is_human_mode else "在线"
+    
+    st.session_state["message"] = []
+    for msg in current_state.values["messages"]:
+        # 只提取有内容的消息用于页面展示
+        if msg.content:
+            if msg.type in ["human", "user"]:
+                st.session_state["message"].append({"role": "user", "content": msg.content})
+            elif msg.type in ["ai", "assistant"]:
+                st.session_state["message"].append({"role": "assistant", "content": msg.content})
+
+# 如果处于人工接管模式，启用后台自动轮询（每 3 秒刷新一次页面）
+if is_human_mode:
+    try:
+        from streamlit_autorefresh import st_autorefresh
+        # interval=3000 代表 3000 毫秒 (3秒)
+        st_autorefresh(interval=3000, limit=None, key="human_mode_refresh")
+    except ImportError:
+        st.error("请在终端运行 `pip install streamlit-autorefresh` 安装自动刷新组件。")
+
 if "message" not in st.session_state:
     st.session_state["message"] = [
         {"role": "assistant", "content": "您好！我是扫地机器人智能客服，我可以帮您解决扫地机器人的各种问题，包括故障诊断、使用指导、功能设置等。有什么可以帮您的吗？"}

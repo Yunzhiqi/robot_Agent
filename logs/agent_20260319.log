@@ -1,0 +1,24 @@
+2026-03-19 20:59:00,213 - agent - INFO - react_agent.py:52 - [Agent Node]即将调用模型，当前对话共有 1 条消息。
+2026-03-19 20:59:04,204 - agent - INFO - react_agent.py:75 - [Tool Node]执行工具：fill_context_for_report, 参数：{}
+2026-03-19 20:59:04,207 - agent - INFO - react_agent.py:52 - [Agent Node]即将调用模型，当前对话共有 3 条消息。
+2026-03-19 20:59:06,370 - agent - INFO - react_agent.py:75 - [Tool Node]执行工具：get_user_id, 参数：{}
+2026-03-19 20:59:06,371 - agent - INFO - react_agent.py:52 - [Agent Node]即将调用模型，当前对话共有 5 条消息。
+2026-03-19 20:59:08,370 - agent - INFO - react_agent.py:75 - [Tool Node]执行工具：get_current_month, 参数：{}
+2026-03-19 20:59:08,373 - agent - INFO - react_agent.py:52 - [Agent Node]即将调用模型，当前对话共有 7 条消息。
+2026-03-19 20:59:12,335 - agent - INFO - react_agent.py:75 - [Tool Node]执行工具：fetch_external_data, 参数：{'user_id': '1006', 'month': '2025-05'}
+2026-03-19 20:59:12,335 - agent - INFO - react_agent.py:52 - [Agent Node]即将调用模型，当前对话共有 9 条消息。
+2026-03-19 20:59:33,190 - agent - INFO - react_agent.py:75 - [Tool Node]执行工具：rag_summarize, 参数：{'quary': '扫地机器人保养建议 多层别墅 儿童家庭'}
+2026-03-19 20:59:33,191 - agent - INFO - react_agent.py:52 - [Agent Node]即将调用模型，当前对话共有 11 条消息。
+2026-03-19 21:03:33,166 - agent - INFO - react_agent.py:52 - [Agent Node]即将调用模型，当前对话共有 1 条消息。
+2026-03-19 21:03:39,120 - agent - INFO - react_agent.py:75 - [Tool Node]执行工具：fill_context_for_report, 参数：{}
+2026-03-19 21:03:39,121 - agent - INFO - react_agent.py:52 - [Agent Node]即将调用模型，当前对话共有 3 条消息。
+2026-03-19 21:03:42,029 - agent - INFO - react_agent.py:75 - [Tool Node]执行工具：get_user_id, 参数：{}
+2026-03-19 21:03:42,030 - agent - INFO - react_agent.py:52 - [Agent Node]即将调用模型，当前对话共有 5 条消息。
+2026-03-19 21:03:44,211 - agent - INFO - react_agent.py:75 - [Tool Node]执行工具：get_current_month, 参数：{}
+2026-03-19 21:03:44,212 - agent - INFO - react_agent.py:52 - [Agent Node]即将调用模型，当前对话共有 7 条消息。
+2026-03-19 21:03:48,650 - agent - INFO - react_agent.py:75 - [Tool Node]执行工具：fetch_external_data, 参数：{'user_id': '1004', 'month': '2025-06'}
+2026-03-19 21:03:48,651 - agent - INFO - react_agent.py:52 - [Agent Node]即将调用模型，当前对话共有 9 条消息。
+2026-03-19 21:04:03,210 - agent - INFO - react_agent.py:75 - [Tool Node]执行工具：rag_summarize, 参数：{'quary': '扫地机器人主刷缠绕严重如何处理 滤网更换建议'}
+2026-03-19 21:04:03,211 - agent - INFO - react_agent.py:52 - [Agent Node]即将调用模型，当前对话共有 11 条消息。
+2026-03-19 21:04:21,208 - agent - INFO - react_agent.py:75 - [Tool Node]执行工具：rag_summarize, 参数：{'quary': '扫地机器人吸力升级建议 宠物家庭清洁优化'}
+2026-03-19 21:04:21,211 - agent - INFO - react_agent.py:52 - [Agent Node]即将调用模型，当前对话共有 13 条消息。

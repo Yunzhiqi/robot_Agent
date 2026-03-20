@@ -12,6 +12,7 @@ rag_config = load_config(config_path=get_abs_path("config/rag.yml"))
 chroma_config = load_config(config_path=get_abs_path("config/chroma.yml"))
 prompts_config = load_config(config_path=get_abs_path("config/prompts.yml"))
 agent_config = load_config(config_path=get_abs_path("config/agent.yml"))
+system_config = load_config(config_path=get_abs_path("config/system.yml"))
 
 
 if __name__ == '__main__':
