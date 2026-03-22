@@ -9,8 +9,8 @@ st.divider()
 if "agent" not in st.session_state:
     st.session_state["agent"] = ReactAgent()
 
-# 假设当前我们处理的是固定的测试用户
-THREAD_ID = "user_001"
+# 允许人工输入需要接管的 Thread ID (可以从用户端侧边栏复制)
+THREAD_ID = st.text_input("请输入要监控的用户对话 ID (Thread ID):", value="user_001")
 config = {"configurable": {"thread_id": THREAD_ID}}
 
 # 1. 获取该用户当前的图状态

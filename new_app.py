@@ -1,5 +1,6 @@
 import time
 import streamlit as st
+import uuid
 from agent.react_agent import ReactAgent
 
 # 页面配置
@@ -48,8 +49,12 @@ if "agent" not in st.session_state:
     st.session_state["agent"] = ReactAgent()
     st.session_state["agent_status"] = "在线"
 
+# 初始化后端的会话 ID
+if "thread_id" not in st.session_state:
+    st.session_state["thread_id"] = "user_001"
+
 # 从数据库同步最新的历史记录（包含人工客服的回复）
-config = {"configurable": {"thread_id": "user_001"}}
+config = {"configurable": {"thread_id": st.session_state["thread_id"]}}
 current_state = st.session_state["agent"].app.get_state(config)
 
 is_human_mode = False
@@ -96,6 +101,8 @@ with st.sidebar:
         st.markdown(f'<div class="status-indicator {status_class}"></div>', unsafe_allow_html=True)
     with col2:
         st.write(f"**状态**: {st.session_state['agent_status']}")
+        
+    st.caption(f"当前会话ID: `{st.session_state['thread_id']}`")
     
     st.divider()
     
@@ -131,6 +138,8 @@ with st.sidebar:
     
     # 清空对话按钮
     if st.button("🗑️ 清空对话记录", type="secondary", use_container_width=True):
+        # 核心修复：生成新的 thread_id，从底层数据库层面彻底开辟新对话
+        st.session_state["thread_id"] = f"user_{str(uuid.uuid4())[:8]}"
         st.session_state["message"] = [
             {"role": "assistant", "content": "对话已清空。您好！我是扫地机器人智能客服，有什么可以帮您的吗？"}
         ]
@@ -232,7 +241,7 @@ if prompt:
                 full_response = ""
                 
                 # 捕获生成器输出
-                res_stream = st.session_state["agent"].execute_stream(prompt)
+                res_stream = st.session_state["agent"].execute_stream(prompt, thread_id=st.session_state["thread_id"])
                 
                 # 自定义capture函数，支持更流畅的输出
                 def stream_generator(generator, cache_list):

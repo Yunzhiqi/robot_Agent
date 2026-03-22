@@ -16,56 +16,57 @@ from utils.prompt_loader import system_prompt, report_prompt
 from utils.log import logger
 from agent.tools.agent_tools import (rag_summarize, fill_context_for_report, transfer_to_human)
 
-import sys
-import asyncio
-import threading
-from mcp.client.stdio import stdio_client, StdioServerParameters
-from mcp.client.session import ClientSession
-from langchain_mcp_adapters.tools import load_mcp_tools
+# import sys
+# import asyncio
+# import threading
+# from mcp.client.stdio import stdio_client, StdioServerParameters
+# from mcp.client.session import ClientSession
+# from langchain_mcp_adapters.tools import load_mcp_tools
+from utils.sync_mcp_server import UniversalSyncMCPClient
 
 # ==========================================
 # 新增：同步化运行 MCP Client 的后台管理器
 # 作用：在后台线程维护与 MCP Server 的长连接，并提供兼容 LangGraph 的同步工具
 # ==========================================
-class SyncMCPClient:
-    def __init__(self):
-        # 创建一个独立的事件循环并在后台线程中永久运行
-        self.loop = asyncio.new_event_loop()
-        self.thread = threading.Thread(target=self.loop.run_forever, daemon=True)
-        self.thread.start()
-        self.tools = []
-        self._init_sync()
+# class SyncMCPClient:
+#     def __init__(self):
+#         # 创建一个独立的事件循环并在后台线程中永久运行
+#         self.loop = asyncio.new_event_loop()
+#         self.thread = threading.Thread(target=self.loop.run_forever, daemon=True)
+#         self.thread.start()
+#         self.tools = []
+#         self._init_sync()
 
-    def _init_sync(self):
-        async def init_mcp():
-            # 通过标准输入输出（stdio）启动并连接我们刚才写的 mcp_server.py
-            server_params = StdioServerParameters(
-                command=sys.executable,
-                args=[get_abs_path("mcp_server.py")]
-            )
-            self.stdio_context = stdio_client(server_params)
-            self.read, self.write = await self.stdio_context.__aenter__()
-            self.session = ClientSession(self.read, self.write)
-            await self.session.__aenter__()
-            await self.session.initialize()
+#     def _init_sync(self):
+#         async def init_mcp():
+#             # 通过标准输入输出（stdio）启动并连接我们刚才写的 mcp_server.py
+#             server_params = StdioServerParameters(
+#                 command=sys.executable,
+#                 args=[get_abs_path("mcp_server.py")]
+#             )
+#             self.stdio_context = stdio_client(server_params)
+#             self.read, self.write = await self.stdio_context.__aenter__()
+#             self.session = ClientSession(self.read, self.write)
+#             await self.session.__aenter__()
+#             await self.session.initialize()
             
-            # 使用 LangChain 的 MCP 适配器，动态拉取服务器上的所有工具
-            mcp_tools = await load_mcp_tools(self.session)
+#             # 使用 LangChain 的 MCP 适配器，动态拉取服务器上的所有工具
+#             mcp_tools = await load_mcp_tools(self.session)
             
-            # 核心魔法：为每个异步工具动态绑定同步调用方法，完美骗过同步运行的 LangGraph
-            for t in mcp_tools:
-                def create_sync_run(async_tool):
-                    def _sync_run(*args, **kwargs):
-                        return asyncio.run_coroutine_threadsafe(
-                            async_tool._arun(*args, **kwargs), self.loop
-                        ).result()
-                    return _sync_run
-                t._run = create_sync_run(t)
-            return mcp_tools
+#             # 核心魔法：为每个异步工具动态绑定同步调用方法，完美骗过同步运行的 LangGraph
+#             for t in mcp_tools:
+#                 def create_sync_run(async_tool):
+#                     def _sync_run(*args, **kwargs):
+#                         return asyncio.run_coroutine_threadsafe(
+#                             async_tool._arun(*args, **kwargs), self.loop
+#                         ).result()
+#                     return _sync_run
+#                 t._run = create_sync_run(t)
+#             return mcp_tools
 
-        # 阻塞等待后台线程把工具拉取完毕
-        future = asyncio.run_coroutine_threadsafe(init_mcp(), self.loop)
-        self.tools = future.result()
+#         # 阻塞等待后台线程把工具拉取完毕
+#         future = asyncio.run_coroutine_threadsafe(init_mcp(), self.loop)
+#         self.tools = future.result()
 
 
 # 1. 定义图的状态 (State)
@@ -79,7 +80,9 @@ class ReactAgent:
     def __init__(self):
         # 1. 启动并连接本地的 MCP Server
         logger.info("[MCP] 正在连接 MCP Server 并动态获取外部工具...")
-        self.mcp_client = SyncMCPClient()
+        self.mcp_client = UniversalSyncMCPClient(get_abs_path(system_config["mcp_server_path"]))
+        # self.mcp_client = SyncMCPClient()
+        
         mcp_tools = self.mcp_client.tools
         logger.info(f"[MCP] 成功拉取到 {len(mcp_tools)} 个 MCP 外部工具！")
         
@@ -146,6 +149,16 @@ class ReactAgent:
         # 执行所有工具调用请求
         tool_node = ToolNode(self.tools)
         result = tool_node.invoke(state)
+
+        # 核心修复：LangChain 的 MCP 适配器默认返回的工具结果是 List 格式
+        # 但 DeepSeek 等模型 API 严格要求 ToolMessage 的 content 必须是纯字符串 (string)
+        # 所以在这里进行一次拦截清洗，把 list 强制降维转换成 string
+        for msg in result.get("messages", []):
+            if isinstance(msg.content, list):
+                # 提取 MCP 返回的 text 内容并拼接
+                msg.content = "\n".join(
+                    c.get("text", "") if isinstance(c, dict) else str(c) for c in msg.content
+                )
 
         # 业务逻辑：检查刚才是否调用了生成报告的前置工具
         is_report = state.get("is_report", False)
