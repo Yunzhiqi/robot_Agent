@@ -22,6 +22,7 @@ ENV/
 .coverage
 htmlcov/
 .tox/
+.logs/
 
 # 打包和构建生成的文件夹
 build/

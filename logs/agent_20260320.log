@@ -1,2 +1,0 @@
-2026-03-20 10:08:13,160 - agent - INFO - react_agent.py:68 - [Agent Node]即将调用模型，当前对话共有 1 条消息。
-2026-03-20 10:08:17,809 - agent - INFO - react_agent.py:92 - [Tool Node]执行工具：transfer_to_human, 参数：{}
